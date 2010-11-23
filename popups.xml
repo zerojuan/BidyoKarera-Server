@@ -1,0 +1,131 @@
+<popups>
+ 	<popup id="Interstitial" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="false" interstitial="true">
+		<event controller="poker">showInterstitial</event>
+		<content width="760" height="-1">
+			<title/>
+		</content>
+	</popup>
+	<popup id="Disconnect" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="false">
+		<event controller="poker,table,lobby">onDisconnection</event>
+		<content width="300" height="200">
+			<title>%generic alert title%</title>
+			<text>%generic alert message%</text>
+		</content>
+		<buttons>
+			<button type="small" label="RECONNECT" localeKey="flash.message.onDisconnection.reconnectButton">
+				<action class="DialogEvent" event="CLOSE"/>
+				<action class="PPVEvent" event="CONFIRM"/>
+			</button>	
+		</buttons>
+	</popup>
+	<popup id="Error" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="true">
+		<event controller="poker,table,lobby">onErrorPopup</event>
+		<content width="300" height="150">
+			<title>%generic alert title%</title>
+			<text>%generic alert message%</text>
+		</content>
+		<buttons>
+			<button type="small" label="Okay" localeKey="flash.message.okayButton">
+				<action class="DialogEvent" event="CLOSE"/>
+				<action class="PPVEvent" event="CONFIRM"/>
+			</button>	
+		</buttons>
+	</popup>
+	<popup id="ErrorNotCancelable" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="false">
+		<event controller="poker,table,lobby">onErrorPopupNotCancelable</event>
+		<content width="300" height="150">
+			<title>%generic alert title%</title>
+			<text>%generic alert message%</text>
+		</content>
+	</popup>
+	<popup id="LoginError" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="false">
+		<event controller="poker,table,lobby">onLoginError</event>
+		<content width="300" height="200">
+			<title>%generic alert title%</title>
+			<text>%generic alert message%</text>
+		</content>
+		<buttons>
+			<button type="small" label="RECONNECT" localeKey="flash.message.onDisconnection.reconnectButton">
+				<action class="DialogEvent" event="CLOSE"/>
+				<action class="PPVEvent" event="CONFIRM"/>
+			</button>	
+		</buttons>
+	</popup>
+	<popup id="SingleInput" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="true">
+		<event controller="table">onSingleInput</event>
+		<content width="370" height="165">
+			<module type="complex" className="com.zynga.poker.popups.modules.SingleInputGenericPanel" src="./modules/SingleInputGenericPanel022t.swf" loadType="postload"/>
+			<title>Kick User</title>
+		</content>
+		<buttons>
+			<button type="small" label="Kick"/>	
+			<button type="large" label="Cancel"/>
+		</buttons>
+	</popup>
+	<popup id="EnterPassword" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="true">
+		<event controller="lobby,poker">onEnterPassword</event>
+		<content width="370" height="165">
+			<module type="complex" className="com.zynga.poker.popups.modules.SingleInputGenericPanel" src="./modules/SingleInputGenericPanel022t.swf" loadType="postload"/>
+			<title>Password Entry</title>
+		</content>
+		<buttons>
+			<button type="large" label="Okay" localeKey="flash.message.okayButton">
+				<action class="DialogEvent" event="CLOSE"/>
+				<action class="PPVEvent" event="ENTER_PASS"/>
+			</button>
+		</buttons>
+	</popup>
+	<popup id="TermsOfServiceReminder" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="false">
+		<event controller="table">showTermsOfServiceReminder</event>
+		<content width="320" height="200">
+			<title>%generic alert title%</title>
+			<text>%generic alert message%</text>
+		</content>
+		<buttons>
+			<button type="small" offsetX="182" offsetY="40" label="Okay" localeKey="flash.message.okayButton">
+				<action class="DialogEvent" event="CLOSE"/>
+			</button>	
+		</buttons>
+	</popup>
+	<popup id="NewUser" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="true">
+		<event controller="poker,table,lobby">showNewUser</event>
+		<content width="460" height="330">
+			<module type="complex" className="com.zynga.poker.popups.modules.NewUser" src="./modules/NewUser021t.swf" loadType="ondemand"/>
+		</content>
+	</popup>
+	<popup id="TableCashier" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="true">
+		<event controller="table">showTableBuyIn</event>
+		<content width="370" height="362">
+			<module type="complex" className="com.zynga.poker.popups.modules.TableCashier" src="./modules/TableCashier049t.swf" loadType="preload"/>
+			<title>Table Cashier</title>
+		</content>
+	</popup>
+	<popup id="TournamentBuyIn" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="true">
+		<event controller="table">showTournamentBuyIn</event>
+		<content width="340" height="324">
+			<module type="complex" className="com.zynga.poker.popups.modules.Tournament.BuyIn" src="./modules/Tournament/BuyIn027t.swf" loadType="postload"/>
+			<title>Tournament Buy-In</title>
+		</content>
+		<buttons>
+			<button type="medium" offsetX="135" offsetY="79" label="Buy In!" localeKey="flash.popup.buyIn.tournament.buyInButton">
+				<action class="PPVEvent" event="TOURNEY_BUYIN"/>
+			</button>
+			<button type="medium" offsetX="135" offsetY="39" label="Cancel" localeKey="flash.popup.buyIn.tournament.cancelButton">
+				<action class="DialogEvent" event="CLOSE"/>
+			</button>
+		</buttons>
+	</popup>
+	<popup id="Challenges" type="flash" snid="1,18" modal="true" cancelable="true" panel="true">
+        <event controller="nav">showChallenges</event>
+        <content width="665" height="490">
+            <module type="complex" className="com.zynga.poker.popups.modules.ChallengesPanel" src="./modules/ChallengesPanel042t.swf" loadType="postload"/>
+        </content>
+    </popup>
+    <popup id="GiftShop" type="flash" snid="1,2,3,4,5,6,7,8,9,10,18" modal="true" cancelable="true" panel="true">
+		<event controller="table,nav">showDrinkMenu</event>
+		<content width="620" height="510">
+			<module type="complex" className="com.zynga.poker.popups.modules.DSGPanel.DSGPanel" src="./modules/DSGPanel066t.swf" loadType="postload"/>
+			
+		</content>
+	</popup>
+</popups>

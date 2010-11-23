@@ -1,0 +1,4 @@
+<images base='images/'>
+	<image name='LobbyDefaultBG'>lobbyBg.png</image>
+	<image name='TableDefaultBG'>newBg.png</image>
+</images>
